@@ -1,0 +1,27 @@
+#!/bin/bash
+# A script to show keybinds for ghostty 
+
+ghostty_bindings() {
+ ghostty +list-keybinds
+}
+
+parse_bindings(){
+  awk -F '=' '{
+    gsub("arrow_","")
+    gsub("digit_","")
+    gsub("bracket_right","}")
+    gsub("bracket_left","{")
+    gsub("+"," + ")
+    printf "%-35s->%s\n",toupper($2),$3 
+  }'
+}
+
+
+monitor_height=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .height')
+menu_height=$((monitor_height * 40 / 100))
+
+
+ghostty_bindings |
+parse_bindings| 
+walker --dmenu -p 'Keybindings' --width 800 --height "$menu_height"
+
