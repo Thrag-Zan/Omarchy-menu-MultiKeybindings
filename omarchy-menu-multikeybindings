@@ -24,7 +24,7 @@ menu() {
 show_keybind_menu(){
   case $(menu "Keybinds" "  Hyprland\n  Ghostty") in
     *Hyprland*) omarchy-menu-keybindings ;;
-    *Ghostty*) ./omarchy-menu-ghostty-keybindings;;
+    *Ghostty*) omarchy-menu-ghostty-keybindings;;
     esac
 }
 
