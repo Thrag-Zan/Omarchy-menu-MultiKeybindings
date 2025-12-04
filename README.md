@@ -9,8 +9,10 @@ An expansion to omarchy-menu-keybindings
 ## Usage
 Move every scripts to ~/.local/bin
 
-You might wanna replace your keybind menu in Hyprland configs
-```hypr/bindings.conf
+You might wanna replace your keybind menu in .config/hypr/bindings.conf
+
+```
 unbind = SUPER, K
 bindd = SUPER, K, Keybinding Menu,exec, omarchy-menu-multikeybindings
 ```
+
